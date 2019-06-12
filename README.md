@@ -3,6 +3,7 @@ get_routes CLI
 Get routes with a number of transfers from the data file.
 
 **Example of data:** https://raw.githubusercontent.com/jpatokal/openflights/master/data/routes.dat
+
 **Description:** https://openflights.org/data.html
 
 Usage
