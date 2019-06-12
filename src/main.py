@@ -34,8 +34,11 @@ if not 0 <= transfers < 4:
     print('Number of transfer should be 0..3')
     exit(-1)
 
-g = parse_file(args.file)
-g = Graph(g)
-findall = g.find_all_paths('DYU', 'AER', edge_number=2)
-for f in findall:
-    print(f)
+g = Graph(parse_file(args.file))
+findall = g.find_all_paths(source, destination, edge_number=transfers)
+if findall:
+    print('Routes from {0} to {1}:'.format(source, destination))
+    for route in sorted(findall, key=len):
+        print(*route, sep=' - ')
+else:
+    print('Routes from {0} to {1} are not found.'.format(source, destination))
