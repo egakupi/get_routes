@@ -12,6 +12,4 @@ Run main.py from **/get_routes** directory
 
 `python -m src.main path_to_file source_airport destination_airport number_of_tranfers`
 
-Where **source_airport** and **destination_airport** are 3-letter (IATA) or 4-letter (ICAO) code.
-
-**maximum number** of transfers is 3.
+Where **source_airport** and **destination_airport** are 3-letter (IATA) or 4-letter (ICAO) code, **maximum number** of transfers is 3.
