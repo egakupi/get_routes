@@ -39,6 +39,6 @@ findall = g.find_all_paths(source, destination, edge_number=transfers)
 if findall:
     print('Routes from {0} to {1}:'.format(source, destination))
     for route in sorted(findall, key=len):
-        print(*route, sep=' - ')
+        print(*route, sep=', ')
 else:
     print('Routes from {0} to {1} are not found.'.format(source, destination))
