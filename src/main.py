@@ -3,7 +3,6 @@ import re
 from os.path import isfile
 
 parser = argparse.ArgumentParser()
-
 parser.add_argument("file", type=str, help="Path of file")
 parser.add_argument("source", type=str, help="3-letter (IATA) or 4-letter (ICAO) code of the source airport.")
 parser.add_argument("destination", type=str, help="3-letter (IATA) or 4-letter (ICAO) code of the destination airport.")
@@ -22,6 +21,6 @@ if not re.match(r'\b[A-Z]{3,4}\b', args.destination):
     print('The destination airport is not correct.')
     exit(-1)
 
-
-
-
+if not 0 <= args.transfers < 4:
+    print('Number of transfer should be 0..3')
+    exit(-1)
