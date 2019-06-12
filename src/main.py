@@ -1,0 +1,27 @@
+import argparse
+import re
+from os.path import isfile
+
+parser = argparse.ArgumentParser()
+
+parser.add_argument("file", type=str, help="Path of file")
+parser.add_argument("source", type=str, help="3-letter (IATA) or 4-letter (ICAO) code of the source airport.")
+parser.add_argument("destination", type=str, help="3-letter (IATA) or 4-letter (ICAO) code of the destination airport.")
+parser.add_argument("transfers", type=int, default=3, help="Number of transfers")
+args = parser.parse_args()
+
+if not isfile(args.file):
+    print('Is not a file')
+    exit(-1)
+
+if not re.match(r'\b[A-Z]{3,4}\b', args.source):
+    print('The source airport is not correct.')
+    exit(-1)
+
+if not re.match(r'\b[A-Z]{3,4}\b', args.destination):
+    print('The destination airport is not correct.')
+    exit(-1)
+
+
+
+
