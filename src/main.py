@@ -1,6 +1,8 @@
 import argparse
 import re
 from os.path import isfile
+from src.parse_file import parse_file
+from src.graph import Graph
 
 parser = argparse.ArgumentParser()
 parser.add_argument("file", type=str, help="Path of file")
@@ -24,3 +26,9 @@ if not re.match(r'\b[A-Z]{3,4}\b', args.destination):
 if not 0 <= args.transfers < 4:
     print('Number of transfer should be 0..3')
     exit(-1)
+
+g = parse_file(args.file)
+g = Graph(g)
+findall = g.find_all_paths('DYU', 'AER', edge_number=2)
+for f in findall:
+    print(f)
