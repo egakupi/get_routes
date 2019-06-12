@@ -20,15 +20,17 @@ if not isfile(file):
     print('File \'{0}\' doesn\'t exist.'.format(file))
     exit(-1)
 
-if not re.match(r'\b[A-Z]{3,4}\b', args.source):
-    print('The source airport is not correct.')
+if not re.match(r'\b[A-Z]{3,4}\b', source):
+    print('The source airport \'{0}\' is not correct. Should be 3-letter (IATA) or 4-letter (ICAO) code.'
+          .format(source))
     exit(-1)
 
-if not re.match(r'\b[A-Z]{3,4}\b', args.destination):
-    print('The destination airport is not correct.')
+if not re.match(r'\b[A-Z]{3,4}\b', destination):
+    print('The destination airport \'{0}\' is not correct. Should be 3-letter (IATA) or 4-letter (ICAO) code.'
+          .format(destination))
     exit(-1)
 
-if not 0 <= args.transfers < 4:
+if not 0 <= transfers < 4:
     print('Number of transfer should be 0..3')
     exit(-1)
 
